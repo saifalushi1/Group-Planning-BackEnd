@@ -5,7 +5,7 @@ Our idea for an application is a social media application in which users can inp
 <br><br>
 
 <h3>BackEnd Wireframe</h3>
-<img src="./backend-diagram.jpg">
+<img src="/Resources/backend-diagram.jpg">
 <br><br>
 
 <h3>Example Models</h3>
