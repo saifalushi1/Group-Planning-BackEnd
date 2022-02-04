@@ -11,7 +11,6 @@ Our idea for an application is a social media application in which users can inp
 The app will be utilizing two Schemas.  One for the individual user and one for individual groups.
 <br><br>
 <h4>UserSchema</h4>
-<br>
 	username: String,
 <br>
 	password: String,
@@ -23,7 +22,6 @@ The app will be utilizing two Schemas.  One for the individual user and one for 
 	groups: [Objects]
 <br>
 <h4>GroupSchema</h4>
-<br>
 	groupName: String,
 <br>
 	members: [Objects]
