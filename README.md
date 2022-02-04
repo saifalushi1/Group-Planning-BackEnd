@@ -6,7 +6,6 @@ Our idea for an application is a social media application in which users can inp
 
 <h3>BackEnd Wireframe</h3>
 <img src="/Resources/backend-diagram.jpg">
-<br><br>
 
 <h3>Example Models</h3>
 The app will be utilizing two Schemas.  One for the individual user and one for individual groups.
