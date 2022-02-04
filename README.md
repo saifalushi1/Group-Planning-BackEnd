@@ -10,7 +10,7 @@ Our idea for an application is a social media application in which users can inp
 <h3>Example Models</h3>
 The app will be utilizing two Schemas.  One for the individual user and one for individual groups.
 <br><br>
-<b>UserSchema</b>
+<h4>UserSchema</h4>
 <br>
 	username: String,
 <br>
@@ -22,7 +22,7 @@ The app will be utilizing two Schemas.  One for the individual user and one for 
 <br>
 	groups: [Objects]
 <br>
-<b>GroupSchema</b>
+<h4>GroupSchema</h4>
 <br>
 	groupName: String,
 <br>
