@@ -10,15 +10,23 @@ Our idea for an application is a social media application in which users can inp
 <h3>Example Models</h3>
 The app will be utilizing two Schemas.  One for the individual user and one for individual groups.
 <br><br>
-UserSchema
+<b>UserSchema</b>
+<br>
 	username: String,
+<br>
 	password: String,
+<br>
 	name: String, 
+<br>
 	events: [Objects],
+<br>
 	groups: [Objects]
 <br>
-GroupSchema
+<b>GroupSchema</b>
+<br>
 	groupName: String,
+<br>
 	members: [Objects]
+<br>
 	events: [Objects]
 <br><br>
