@@ -5,7 +5,7 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 
 
-router.post('/signup', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const password = await bcrypt.hash(req.body.password, 10)
     const email = req.body.email
@@ -16,6 +16,8 @@ router.post('/signup', async (req, res, next) => {
     return next(error)
   }
 });
+
+// router.get("/", )
 // router.post('/signup', (req, res, next) => {
 //     bcrypt
 //       .hash(req.body.password, 10)

@@ -2,7 +2,11 @@ const mongoose = require('mongoose')
 
 const GroupSchema = new mongoose.Schema({
     name: String,
-    members: [Objects],
+    members: [{
+        name: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    }],
     events: [Objects],
     timestamps: true
 })
