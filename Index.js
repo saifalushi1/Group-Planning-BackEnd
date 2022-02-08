@@ -13,9 +13,17 @@ app.get('/', (req, res) => {
 	res.redirect('/grouper/signin')
 })
 
+const requestLogger = require("./middleware/request_logger")
+app.use(requestLogger)
+
 const userController = require("./controllers/userController")
 app.use("/grouper", userController)
 
+const eventController = require("./controllers/eventController")
+app.use("/grouper/events", eventController)
+
+const { handleErrors } = require("./middleware/custom_errors")
+app.use(handleErrors)
 
 app.listen(app.get('port'), () => {
 	console.log(`✅ PORT: ${app.get('port')} 🌟`)

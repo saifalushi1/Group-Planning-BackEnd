@@ -7,7 +7,7 @@ const GroupSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     }],
-    events: [Objects],
+    events: [Object],
     timestamps: true
 })
 
