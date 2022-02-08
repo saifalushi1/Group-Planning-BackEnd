@@ -10,11 +10,11 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 app.get('/', (req, res) => {
-	res.redirect('/grouper')
+	res.redirect('/grouper/signin')
 })
 
 const userController = require("./controllers/userController")
-app.use("/grouper/signup", userController)
+app.use("/grouper", userController)
 
 
 app.listen(app.get('port'), () => {
