@@ -1,15 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const { requireToken } = require('../middleware/auth');
+const express = require('express')
+const router = express.Router()
+const { requireToken } = require('../middleware/auth')
 
 const Event = require("../models/Event")
 
 // Get request to view events
-router.get('/', requireToken, (req, res, next) => {
+router.get('/userEvents/:id', requireToken, (req, res, next) => {
     Event.find()
       .then((events) => res.json(events))
       .catch(next);
-  });
+  })
 
 // Post request to create new event
 router.post('/', async (req, res, next) => {
@@ -22,7 +22,7 @@ router.post('/', async (req, res, next) => {
 })
 
 // Patch request to update event
-router.patch('/:id', async (req, res, next) => {
+router.patch('/userEvents/:id', async (req, res, next) => {
   try {
       const eventToUpdate = await Event.findOneAndUpdate(
           req.params.id, req.body, {new: true}
