@@ -5,11 +5,14 @@ const { requireToken } = require('../middleware/auth')
 const Event = require("../models/Event")
 
 // Get request to view events
-router.get('/userEvents/:id', requireToken, (req, res, next) => {
-    Event.find()
-      .then((events) => res.json(events))
-      .catch(next);
-  })
+router.get("/:id", requireToken, async (req, res, next) => {
+  try{
+    const userEvents = Event.findById(req.params.id)
+    res.json(userEvents)
+  } catch(err){
+    next(err)
+  }
+})
 
 // Post request to create new event
 router.post('/', async (req, res, next) => {
