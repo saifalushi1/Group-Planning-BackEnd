@@ -20,15 +20,16 @@ router.post('/signup', async (req, res, next) => {
 
 
 //finds a user in the db from the email provided. If login credentials are correct it generates a token otherwise throws an error("user info incorre") 
-router.post('/signin', (req, res, next) => {
+router.post('/signin', async (req, res, next) => {
   User.findOne({ email: req.body.email })
-  //  .then((userInfo) => res.status(201).json(userInfo))
   .then((user) => createUserToken(req, user)) 
   .then((token) => res.json({ token }))
   .catch(next);
 })
 
-// //after login make this call to find the user then goto user/:id
+// //after login make this call to find the user's info 
+//***** when the user clicks login we will make two axios requests 1.)create token(above) 
+//2.)find the user from the email input and store their _id in state
 // router.get("/users", async (req, res, next) => {
 //   try{
 //     const findUser = await User.findOne(req.body)
@@ -37,14 +38,6 @@ router.post('/signin', (req, res, next) => {
 //     next(err)
 //   }
 // })
-
-router.get("/:id", async (req, res, next) => {
-  try{
-    // const getUser = await
-  } catch(err){
-    next(err)
-  }
-})
 
 // change request for user info
 router.patch('users/:id', requireToken, async (req, res, next) => {
@@ -60,7 +53,7 @@ if(user) {
 }
 })
 
-// get request for user info by id
+// get request for user info by id ///// most likely do not need this as we are already getting the user info in the first get request
 router.get('users/:id', async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id) 
