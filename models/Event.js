@@ -4,13 +4,16 @@ const EventSchema = new mongoose.Schema({
     title: String,
     description: String,
     date: Date,
-    //start time, end time, creation time(timestamp)
+    startTime: Number,
+    endTime: Number,
     creator: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        // required: True
+        required: true
     }
-})
+},
+{TimeStamp: true}
+)
 
 const Event = mongoose.model('Event', EventSchema)
 
