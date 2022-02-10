@@ -5,9 +5,9 @@ const { requireToken } = require('../middleware/auth')
 const Event = require("../models/Event")
 
 // Get request to view events
-router.get("/:id", requireToken, async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try{
-    const userEvents = Event.find()
+    const userEvents = Event.find({ creator: req.params.id })
     res.json(userEvents)
   } catch(err){
     next(err)

@@ -40,20 +40,6 @@ router.get("/users/:username",  async (req, res, next) => {
   }
 })
 
-// get request for user info by id
-router.get('users/:id', requireToken, async (req, res, next) => {
-  try {
-    const user = await User.findById(req.params.id) 
-if(user) {
-    res.json(user)
-} else {
-    res.sendStatus(404)
-}
-} catch(err) {
-    next(err)
-}
-})
-
 // change request for user info 
 router.patch('/users/:id', requireToken, async (req, res, next) => {
   try {

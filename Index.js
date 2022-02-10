@@ -22,6 +22,9 @@ app.use("/grouper", userController)
 const eventController = require("./controllers/eventController")
 app.use("/grouper/events", eventController)
 
+const groupController = require("./controllers/groupController")
+app.use("/grouper/groups", groupController)
+
 const { handleErrors } = require("./middleware/custom_errors")
 app.use(handleErrors)
 
