@@ -30,14 +30,11 @@ router.post('/signin', async (req, res, next) => {
 // //after login make this call to find the user's info 
 //***** when the user clicks login we will make two axios requests 1.)create token(above) 
 // 2.)find the user from the email input and store their _id in state
-router.get("/users", requireToken, async (req, res, next) => {
+router.get("/users/:username",  async (req, res, next) => {
   try{
-    const findUser = await User.findOne({ email: req.body })
-    if(findUser){
-      res.json(findUser)
-    } else{
-      res.sendStatus(404)
-    }
+    const findUser = await User.findOne({ email: req.params.username })
+    res.json(findUser)
+    console.log(req.body)
   } catch(err){
     next(err)
   }
