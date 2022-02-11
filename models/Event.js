@@ -4,8 +4,8 @@ const EventSchema = new mongoose.Schema({
     title: String,
     description: String,
     date: Date,
-    startTime: Number,
-    endTime: Number,
+    startTime: String,
+    endTime: String,
     creator: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

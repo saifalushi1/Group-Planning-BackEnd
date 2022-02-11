@@ -7,7 +7,7 @@ const Event = require("../models/Event")
 // Get request to view events
 router.get("/:id", async (req, res, next) => {
   try{
-    const userEvents = Event.find({ creator: req.params.id })
+    const userEvents = await Event.find({ creator: req.params.id })
     res.json(userEvents)
   } catch(err){
     next(err)
