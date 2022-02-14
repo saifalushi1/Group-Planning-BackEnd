@@ -5,8 +5,7 @@ const GroupSchema = new mongoose.Schema({
     members: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-    }],
-    events: [Object],
+    }]
 },
 {timestamps: true}
 )

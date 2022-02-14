@@ -30,7 +30,7 @@ router.post('/signin', async (req, res, next) => {
 // //after login make this call to find the user's info 
 //***** when the user clicks login we will make two axios requests 1.)create token(above) 
 // 2.)find the user from the email input and store their _id in state
-router.get("/users/:username",  async (req, res, next) => {
+router.get("/users/:username", async (req, res, next) => {
   try{
     const findUser = await User.findOne({ email: req.params.username })
     res.json(findUser)
@@ -43,14 +43,14 @@ router.get("/users/:username",  async (req, res, next) => {
 // change request for user info 
 router.patch('/users/:id', requireToken, async (req, res, next) => {
   try {
-    const userToUpdate = await User.findByIdAndUpdate( req.params.id,
-      req.body,
-  ) 
-if(user) {
-    res.json(userToUpdate)
-} else {
-    res.sendStatus(404)
-}
+    const password = await bcrypt.hash(req.body.password, 10)
+    const name = req.body.name
+    const userToUpdate = await User.findByIdAndUpdate( req.params.id, {password: password, name: name},) 
+    if(user) {
+        res.json(userToUpdate)
+    } else {
+        res.sendStatus(404)
+    }
 } catch(err) {
     next(err)
 }

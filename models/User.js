@@ -11,6 +11,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    events:[
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Events",
+        required: false
+      }],
     groups:[
       {
         type: mongoose.Schema.Types.ObjectId,

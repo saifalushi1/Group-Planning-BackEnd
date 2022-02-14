@@ -1,9 +1,14 @@
 const mongoose = require('mongoose')
 
 const EventSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    date: Date,
+    title: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: String,
+        required: true
+    },
     startTime: String,
     endTime: String,
     creator: {
@@ -13,7 +18,7 @@ const EventSchema = new mongoose.Schema({
     }
     
 },
-// {TimeStamp: true}
+    // {timestamps: true}
 )
 
 const Event = mongoose.model('Event', EventSchema)
