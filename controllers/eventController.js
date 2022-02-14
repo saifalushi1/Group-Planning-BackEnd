@@ -7,7 +7,7 @@ const Event = require("../models/Event")
 // Get request to view events
 router.get("/:id", requireToken, async (req, res, next) => {
   try{
-    const userEvents = Event.findById(req.params.id)
+    const userEvents = await Event.find({ creator: req.params.id })
     res.json(userEvents)
   } catch(err){
     next(err)
@@ -15,7 +15,7 @@ router.get("/:id", requireToken, async (req, res, next) => {
 })
 
 // Post request to create new event
-router.post('/', async (req, res, next) => {
+router.post('/', requireToken, async (req, res, next) => {
     try {
         const newEvent = await Event.create(req.body)
         res.status(201).json(newEvent)
@@ -25,10 +25,10 @@ router.post('/', async (req, res, next) => {
 })
 
 // Patch request to update event
-router.patch('/userEvents/:id', async (req, res, next) => {
+router.patch('/:id', requireToken, async (req, res, next) => {
   try {
-      const eventToUpdate = await Event.findOneAndUpdate(
-          req.params.id, req.body, {new: true}
+      const eventToUpdate = await Event.findByIdAndUpdate(
+          req.params.id, req.body,
       )
       if (eventToUpdate) {
           res.json(eventToUpdate)

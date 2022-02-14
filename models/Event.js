@@ -1,16 +1,25 @@
 const mongoose = require('mongoose')
 
 const EventSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    date: Date,
-    //start time, end time, creation time(timestamp)
+    title: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: String,
+        required: true
+    },
+    startTime: String,
+    endTime: String,
     creator: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        // required: True
+        required: true
     }
-})
+    
+},
+    // {timestamps: true}
+)
 
 const Event = mongoose.model('Event', EventSchema)
 

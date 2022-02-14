@@ -10,7 +10,20 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },        
+    },
+    events:[
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Events",
+        required: false
+      }],
+    groups:[
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Group",
+        required: false
+      }
+    ]        
 },
 {
     timestamps: true,
