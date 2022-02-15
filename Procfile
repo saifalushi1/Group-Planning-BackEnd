@@ -1,1 +1,1 @@
-web: node index.js
+web: node grouper-backend/index.js
