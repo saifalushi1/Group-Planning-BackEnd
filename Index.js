@@ -29,5 +29,5 @@ const { handleErrors } = require("./middleware/custom_errors")
 app.use(handleErrors)
 
 app.listen(app.get('port'), () => {
-	console.log(`✅ PORT: ${app.get('port')} 🌟`)
+	console.log(`✅ PORT!: ${app.get('port')} 🌟`)
 })
