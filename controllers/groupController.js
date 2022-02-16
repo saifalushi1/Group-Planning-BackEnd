@@ -25,7 +25,7 @@ router.get("/:id", requireToken, async (req, res, next) => {
 //update group setting, name, add members
 router.patch("/:groupId", requireToken, async (req, res, next) => {
     try{
-        const updateGroup = await Group.findByIdAndUpdate(req.params.groupId,req.body)
+        const updateGroup = await Group.findByIdAndUpdate(req.params.groupId, req.body)
         if(updateGroup) {
             res.json(updateGroup)
         } else {
