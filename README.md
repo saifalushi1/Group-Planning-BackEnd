@@ -12,6 +12,6 @@ The app will be utilizing two Schemas.  One for the individual user and one for 
 <br>
 <img src="/Resources/event-schema.png">
 <br>
-<h4>The initial idea for an application is a social media application in which users can input their schedule into a calendar.  The users can then join groups with their friends and the application will compare everyone’s schedules to show when the group can hang out.  Due to some unforseen circumstances involving our group size being reduced to two people, we had to change directions a bit.</h4>
+<h4>The initial idea for an application is a social media application in which users can input their schedule into a calendar.  The users can then join groups with their friends and the application will compare everyone’s schedules to show when the group can hang out. But time ran out so the focus shifted</h4>
 <br>
-<h3>The backend structure is already in place so our stretch goals can be acomplished with some given time</h3>
+<h3>The backend structure is already in place so the stretch goals can be acomplished with some given time</h3>
